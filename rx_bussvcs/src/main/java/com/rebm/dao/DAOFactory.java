@@ -1,5 +1,7 @@
 package com.rebm.dao;
 
+import com.rebm.util.PropertiesHelper;
+
 public class DAOFactory {
 	
 	private  static DAOFactory factory ;
@@ -20,7 +22,22 @@ public class DAOFactory {
 	}
 	
 	public static DAO createServiceRequestDAO(){
-		return new ServiceRequestsDAO();
+		DAO dao = null;
+		Class<DAO> clazz = null;
+		try {
+			 clazz =  (Class<DAO>) Class.forName(PropertiesHelper.loadProperties().getProperty("servicerequest.dao"));
+			 dao = (DAO)clazz.newInstance();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return dao;
 	}
 
 }

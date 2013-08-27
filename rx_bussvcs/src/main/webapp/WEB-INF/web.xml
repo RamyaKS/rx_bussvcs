@@ -1,0 +1,17 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>REBM Web Application</display-name>
+
+	<servlet>
+		<servlet-name>RestStartupServlet</servlet-name>
+		<display-name>RestStartupServlet</display-name>
+		<description></description>
+		<servlet-class>com.rebm.rest.client.RestStartupServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+</web-app>
+
